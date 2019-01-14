@@ -1,8 +1,8 @@
 package cn.itcast.service.impl;
 
 import cn.itcast.dao.FoodTypeDao;
-import cn.itcast.dao.impl.FoodTypeDaoImpl;
 import cn.itcast.entity.FoodType;
+import cn.itcast.factory.BeanFactory;
 import cn.itcast.service.FoodTypeService;
 
 import java.util.List;
@@ -12,13 +12,14 @@ import java.util.List;
  */
 
 public class FoodTypeServiceImpl implements FoodTypeService {
-
-    private FoodTypeDao foodTypeDao = new FoodTypeDaoImpl();//对象的创建,不能写死
-
+    //调用dao
+    //private FoodTypeDao foodTypeDao = new FoodTypeDaoImpl();//对象的创建,不能写死
+    //工厂创建对象
+    private FoodTypeDao foodTypeDao = BeanFactory.getInstance("foodTypeDao", FoodTypeDao.class);
 
     public void save(FoodType foodType) {
         try {
-             foodTypeDao.save(foodType);
+            foodTypeDao.save(foodType);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
