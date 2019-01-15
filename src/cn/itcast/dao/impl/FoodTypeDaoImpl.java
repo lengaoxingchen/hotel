@@ -23,9 +23,9 @@ public class FoodTypeDaoImpl implements FoodTypeDao {
     }
 
     public void update(FoodType foodType) {
-        String sql = "update  foodType set typeName=? where id=?";
+        String sql = "update foodType set typeName=? where id=?";
         try {
-            JdbcUtils.getQueryRunner().update(sql, foodType.getId(),foodType.getTypeName());
+            JdbcUtils.getQueryRunner().update(sql, foodType.getTypeName(),foodType.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
