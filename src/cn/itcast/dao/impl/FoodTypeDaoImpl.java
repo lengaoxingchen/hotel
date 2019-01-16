@@ -25,7 +25,7 @@ public class FoodTypeDaoImpl implements FoodTypeDao {
     public void update(FoodType foodType) {
         String sql = "update foodType set typeName=? where id=?";
         try {
-            JdbcUtils.getQueryRunner().update(sql, foodType.getTypeName(),foodType.getId());
+            JdbcUtils.getQueryRunner().update(sql, foodType.getTypeName(), foodType.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +54,7 @@ public class FoodTypeDaoImpl implements FoodTypeDao {
     public List<FoodType> getAll(String typeName) {
         String sql = "select * from foodType where typeName like ?";
         try {
-            return JdbcUtils.getQueryRunner().query(sql, new BeanListHandler<FoodType>(FoodType.class), "%"+typeName+"%");
+            return JdbcUtils.getQueryRunner().query(sql, new BeanListHandler<FoodType>(FoodType.class), "%" + typeName + "%");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -69,4 +69,5 @@ public class FoodTypeDaoImpl implements FoodTypeDao {
             throw new RuntimeException(e);
         }
     }
+
 }

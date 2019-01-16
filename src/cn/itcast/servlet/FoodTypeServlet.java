@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.itcast.entity.FoodType;
 import cn.itcast.factory.BeanFactory;
 import cn.itcast.service.FoodTypeService;
+import cn.itcast.utils.WebUtils;
 
 /**
  * 4. 菜系管理Servlet开发
@@ -87,7 +88,7 @@ public class FoodTypeServlet extends HttpServlet {
             uri = "/error/error.jsp";
         }
 
-        goTo(request, response, uri);
+        WebUtils.goTo(request, response, uri);
 
 
     }
@@ -109,7 +110,7 @@ public class FoodTypeServlet extends HttpServlet {
         }
 
         // 跳转
-        goTo(request, response, uri);
+        WebUtils.goTo(request, response, uri);
     }
 
     //c. 进入更新页面
@@ -129,7 +130,7 @@ public class FoodTypeServlet extends HttpServlet {
             uri = "/error/error.jsp";
         }
 
-        goTo(request, response, uri);
+        WebUtils.goTo(request, response, uri);
     }
 
     //d. 删除
@@ -148,7 +149,7 @@ public class FoodTypeServlet extends HttpServlet {
             uri = "/error/error.jsp";
         }
 
-        goTo(request, response, uri);
+        WebUtils.goTo(request, response, uri);
     }
 
     // e. 更新
@@ -174,19 +175,7 @@ public class FoodTypeServlet extends HttpServlet {
         }
 
         // 跳转
-        goTo(request, response, uri);
-    }
-
-    /**
-     * 跳转的通用方法
-     */
-    private void goTo(HttpServletRequest request, HttpServletResponse response, Object uri)
-            throws ServletException, IOException {
-        if (uri instanceof RequestDispatcher){
-            ((RequestDispatcher)uri).forward(request, response);
-        } else if (uri instanceof String) {
-            response.sendRedirect(request.getContextPath() + uri);
-        }
+        WebUtils.goTo(request, response, uri);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

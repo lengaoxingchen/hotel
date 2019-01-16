@@ -3,7 +3,7 @@
     <!--默认配置-->
     <default-config>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://192.168.232.129:3306/hotel</property>
+        <property name="jdbcUrl">jdbc:mysql://192.168.232.129:3306/hotel?useUnicode=true&amp;characterEncoding=UTF8</property>
         <property name="user">root</property>
         <property name="password">root</property>
         <property name="initialPoolSize">5</property>
@@ -13,7 +13,7 @@
     <!--配置连接池mysql-->
     <named-config name="oracleConfig">
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://192.168.232.129:3306/hotel</property>
+        <property name="jdbcUrl">jdbc:mysql://192.168.232.129:3306/hotel?useUnicode=true&amp;characterEncoding=UTF8</property>
         <property name="user">root</property>
         <property name="password">root</property>
         <property name="initialPoolSize">5</property>

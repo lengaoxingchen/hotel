@@ -1,10 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<!-- åå«å¬å±çJSPä»£ç çæ®µ -->
+	<!-- 包含公共的JSP代码片段 -->
 	
-<title>æ çº¿ç¹é¤å¹³å°</title>
+<title>无线点餐平台</title>
 
 
 
@@ -15,55 +16,55 @@
 <link rel="stylesheet" type="text/css" href="style/css/index_1.css" />
 </head>
 <body>
-	<!-- é¡µé¢æ é¢ -->
+	<!-- 页面标题 -->
 	<div id="TitleArea">
 		<div id="TitleArea_Head"></div>
 		<div id="TitleArea_Title">
 			<div id="TitleArea_Title_Content">
 				<img border="0" width="13" height="13"
-					src="style/css/images/title_arrow.gif" /> è®¢åèååè¡¨
+					src="style/css/images/title_arrow.gif" /> 订单菜品列表
 			</div>
 		</div>
 		<div id="TitleArea_End"></div>
 	</div>
 
-	<!-- ä¸»åå®¹åºåï¼æ°æ®åè¡¨æè¡¨åæ¾ç¤ºï¼ -->
+	<!-- 主内容区域（数据列表或表单显示） -->
 	<div id="MainArea">
 		<table class="MainArea_Content" align="center" cellspacing="0" cellpadding="0">
-			<!-- è¡¨å¤´-->
+			<!-- 表头-->
 			<thead>
 				<tr align="center" valign="middle" id="TableTitle">
-					<td>èå</td>
-					<td>åä»·</td>
-					<td>æ°é</td>
+					<td>菜名</td>
+					<td>单价</td>
+					<td>数量</td>
 				</tr>
 			</thead>
-			<!--æ¾ç¤ºæ°æ®åè¡¨ -->
+			<!--显示数据列表 -->
 			<tbody id="TableData">
 				
 			 		<tr height="60">
-				 		<td>ç¤ä¹³çª</td>
+				 		<td>烤乳猪</td>
 				 		<td>68.0</td>
 				 		<td>1</td>
 			 		</tr>
 			 	
 			 		<tr height="60">
-				 		<td>ç¤ä¹³çª</td>
+				 		<td>烤乳猪</td>
 				 		<td>68.0</td>
 				 		<td>1</td>
 			 		</tr>
 			 	
 			 		<tr height="60">
-				 		<td>ç½åé¸¡</td>
+				 		<td>白切鸡</td>
 				 		<td>68.0</td>
 				 		<td>1</td>
 			 		</tr>
 			 	
 			</tbody>
 		</table>
-		<!-- å¶ä»åè½è¶é¾æ¥ -->
+		<!-- 其他功能超链接 -->
 		<div id="TableTail" align="center">
-			 <a href="javascript:history.go(-1);" class="FunctionButton">è¿å</a>
+			 <a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
 		</div>
 	</div>
 </body>
