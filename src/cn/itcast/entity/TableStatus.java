@@ -1,17 +1,15 @@
 package cn.itcast.entity;
 
-
-import lombok.Getter;
-
 /**
- * é¤æ¡ŒçŠ¶æ€
+ * ²Í×À×´Ì¬
+ * @author Jie.Yuan
+ *
  */
-@Getter
 public enum TableStatus {
-    /**
-     * Free é¤æ¡Œä½äºæœªé¢„å®šçŠ¶æ€
-     * PlanIn é¤æ¡Œä½äºå·²é¢„è®¢çŠ¶æ€
-     */
-    FREE, PlanIn;
 
+	/**
+	 * Free   ²Í³µ´¦ÓÚÎ´Ô¤¶¨
+	 * PlanIn ²Í³µ´¦ÓÚÒÑÔ¤¶¨×´Ì¬
+	 */
+	Free,PlanIn;
 }

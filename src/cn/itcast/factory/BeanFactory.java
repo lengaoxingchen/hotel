@@ -2,29 +2,41 @@ package cn.itcast.factory;
 
 import java.util.ResourceBundle;
 
+import cn.itcast.dao.IFoodTypeDao;
+
 /**
- * åˆ›å»ºdaoæˆ–serviceå®ä¾‹
+ * ¹¤³§£º´´½¨dao»òserviceÊµÀı
+ * @author Jie.Yuan
+ *
  */
 public class BeanFactory {
-    //åŠ è½½é…ç½®æ–‡ä»¶
-    private static ResourceBundle bundle;
+	
+	// ¼ÓÔØÅäÖÃÎÄ¼ş
+	private static ResourceBundle bundle;
+	static {
+		bundle = ResourceBundle.getBundle("instance");
+	}
 
-    static {
-        bundle = ResourceBundle.getBundle("instance");
-    }
-
-    /**
-     * æ ¹æ®æŒ‡å®šçš„key,è¯»å–é…ç½®æ–‡ä»¶è·å–ç±»çš„å…¨è·¯å¾„;åˆ›å»ºå¯¹è±¡
-     *
-     * @return
-     */
-    public static <T> T getInstance(String key, Class<T> clazz) {
-        String className = bundle.getString(key);
-        try {
-            return (T) Class.forName(className).newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+	/**
+	 * ¸ù¾İÖ¸¶¨µÄkey£¬¶ÁÈ¡ÅäÖÃÎÄ¼ş»ñÈ¡ÀàµÄÈ«Â·¾¶£» ´´½¨¶ÔÏó
+	 * @return
+	 */
+	public static <T> T getInstance(String key,Class<T> clazz) {
+		String className = bundle.getString(key);
+		try {
+			return (T) Class.forName(className).newInstance();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
 

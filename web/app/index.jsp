@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,10 +11,10 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/app/detail/style/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/app/detail/style/js/page_common.js"></script>
-<link href="${pageContext.request.contextPath}/app/detail/style/css/common_style_blue.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/app/detail/style/css/index_1.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath }/app/style/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/app/style/js/page_common.js"></script>
+<link href="${pageContext.request.contextPath }/app/style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/app/style/css/index_1.css" />
 	<style type="text/css">
 	* {
 		margin: 0px;
@@ -29,7 +29,7 @@
 		list-style:none;
 	} 
 	#dish_2 li{
-		background:url(${pageContext.request.contextPath}/app/detail/style/images/img/btn.gif);
+		background:url(style/images/img/btn.gif);
 		width:164px;
 		height:47px;
 		text-align:center;
@@ -42,7 +42,7 @@
 	<div class="index_all" style="text-align:center;">
 		<!--上面的背景层-->
 		<div>
-			<img src="${pageContext.request.contextPath}/app/detail/style/images/flower.gif" />
+			<img src="${pageContext.request.contextPath }/app/style/images/flower.gif" />
 		</div>
 		<!--中间层-->
 		<div id="index_center">
@@ -57,7 +57,7 @@
 				<!--菜单层的中间-->
 				<div class="bg_middle">
 					<img
-						src="${pageContext.request.contextPath}/app/detail/style/images/index_menu.gif"
+						src="${pageContext.request.contextPath }/app/style/images/index_menu.gif"
 						border="0" usemap="#Map" />
 					<map name="Map" id="Map">
 						<area shape="rect" coords="164,99,354,199" href="#" />
@@ -70,24 +70,26 @@
 			<!--放桌子的层-->
 			<div id="center_bottom">
 				<ul style=" display:inline-table">
-					<c:choose>
-						<c:when test="${not empty requestScope.listDinnerTable}">
-							<c:forEach var="dt" items="${requestScope.listDinnerTable}">
-								<li>
-									<a href="${pageContext.request.contextPath}/index?method=indexDetail&tableId=${dt.id}">
-										${dt.tableName}
-									</a>
-								</li>
-							</c:forEach>
-						</c:when>
-					</c:choose>
+					
+						
+						<c:choose>
+							<c:when test="${not empty requestScope.listDinnerTable}">
+								<c:forEach var="dt" items="${requestScope.listDinnerTable}">
+									<li>
+										<a href="${pageContext.request.contextPath }/food?method=foodDetail&tableId=${dt.id}">
+											${dt.tableName }
+										</a>
+									</li>
+								</c:forEach>
+							</c:when>
+						</c:choose>
 				</ul>
 			</div>
 		</div>
 		
 		<!--下面的背景层-->
 		<div>
-			<img src="${pageContext.request.contextPath}/app/detail/style/images/flower.gif" />
+			<img src="${pageContext.request.contextPath }/app/style/images/flower.gif" />
 		</div>
 	</div>
 </body>

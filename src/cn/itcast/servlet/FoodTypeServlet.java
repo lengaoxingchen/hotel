@@ -3,7 +3,6 @@ package cn.itcast.servlet;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,187 +10,127 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.itcast.entity.FoodType;
 import cn.itcast.factory.BeanFactory;
-import cn.itcast.service.FoodTypeService;
+import cn.itcast.service.IFoodTypeService;
 import cn.itcast.utils.WebUtils;
 
 /**
- * 4. èœç³»ç®¡ç†Servletå¼€å‘
- *
- * a. æ·»åŠ èœç³»
- * b. èœç³»åˆ—è¡¨å±•ç¤º
- * c. è¿›å…¥æ›´æ–°é¡µé¢
- * d. åˆ é™¤
- * e. æ›´æ–°
- *
+ * 4. ²ËÏµ¹ÜÀíServlet¿ª·¢
+ * 
+ * a. Ìí¼Ó²ËÏµ b. ²ËÏµÁĞ±íÕ¹Ê¾ c. ½øÈë¸üĞÂÒ³Ãæ d. É¾³ı e. ¸üĞÂ
+ * 
  * @author Jie.Yuan
- *
+ * 
  */
-public class FoodTypeServlet extends HttpServlet {
+public class FoodTypeServlet extends BaseServlet {
 
-    // è°ƒç”¨çš„èœç³»Service
-    private FoodTypeService foodTypeService = BeanFactory.getInstance("foodTypeService",FoodTypeService.class);
-    // è·³è½¬èµ„æº
-    private Object uri;
+	/**
+	 * // µ÷ÓÃµÄ²ËÏµService private IFoodTypeService foodTypeService =
+	 * BeanFactory.getInstance("foodTypeService",IFoodTypeService.class); //
+	 * Ìø×ª×ÊÔ´ private Object uri;
+	 * 
+	 * public void doGet(HttpServletRequest request, HttpServletResponse
+	 * response) throws ServletException, IOException { // ÉèÖÃ±àÂë
+	 * request.setCharacterEncoding("UTF-8");
+	 * response.setContentType("text/html;charset=UTF-8");
+	 * 
+	 * // »ñÈ¡²Ù×÷µÄÀàĞÍ String method = request.getParameter("method"); // ÅĞ¶Ï if
+	 * ("addFoodType".equals(method)) { // Ìí¼Ó addFoodType(request, response); }
+	 * 
+	 * else if ("list".equals(method)) { // ÁĞ±íÕ¹Ê¾ list(request, response); }
+	 * 
+	 * else if ("viewUpdate".equals(method)) { // ½øÈë¸üĞÂÒ³Ãæ viewUpdate(request,
+	 * response); }
+	 * 
+	 * else if ("delete".equals(method)) { // É¾³ı delete(request, response); }
+	 * 
+	 * else if ("update".equals(method)) { // ¸üĞÂ update(request, response); } }
+	 * 
+	 * public void doPost(HttpServletRequest request, HttpServletResponse
+	 * response) throws ServletException, IOException { this.doGet(request,
+	 * response); }
+	 */
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // è®¾ç½®ç¼–ç 
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
+	
+	
+	
+	// a. Ìí¼Ó²ËÏµ
+	public Object addFoodType(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Object uri = null;
+		// 1. »ñÈ¡ÇëÇóÊı¾İ·â×°
+		String foodTypeName = request.getParameter("foodTypeName");
+		FoodType ft = new FoodType();
+		ft.setTypeName(foodTypeName);
 
-        // è·å–æ“ä½œçš„ç±»å‹
-        String method = request.getParameter("method");
-        // åˆ¤æ–­
-        if ("addFoodType".equals(method)) {
-            // æ·»åŠ 
-            addFoodType(request, response);
-        }
+		// 2. µ÷ÓÃservice´¦ÀíÒµÎñÂß¼­
+		foodTypeService.save(ft);
 
-        else if ("list".equals(method)) {
-            // åˆ—è¡¨å±•ç¤º
-            list(request, response);
-        }
+		// 3. Ìø×ª
+		uri = request.getRequestDispatcher("/foodType?method=list");
 
-        else if ("viewUpdate".equals(method)) {
-            // è¿›å…¥æ›´æ–°é¡µé¢
-            viewUpdate(request, response);
-        }
+		return uri;
 
-        else if ("delete".equals(method)) {
-            // åˆ é™¤
-            delete(request, response);
-        }
+	}
 
-        else if ("update".equals(method)) {
-            // æ›´æ–°
-            update(request, response);
-        }
-    }
+	// b. ²ËÏµÁĞ±íÕ¹Ê¾
+	public Object list(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Object uri = null;
+		// µ÷ÓÃService²éÑ¯ËùÓĞµÄÀà±ğ
+		List<FoodType> list = foodTypeService.getAll();
+		// ±£´æ
+		request.setAttribute("listFoodType", list);
+		// Ìø×ªµÄ²ËÏµÁĞ±íÒ³Ãæ
+		uri = request.getRequestDispatcher("/sys/type/foodtype_list.jsp");
 
-    //a. æ·»åŠ èœç³»
-    public void addFoodType(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+		return uri;
+	}
 
-        try {
-            // 1. è·å–è¯·æ±‚æ•°æ®å°è£…
-            String foodTypeName = request.getParameter("foodTypeName");
-            FoodType ft = new FoodType();
-            ft.setTypeName(foodTypeName);
+	// c. ½øÈë¸üĞÂÒ³Ãæ
+	public Object viewUpdate(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Object uri = null;
+		// 1. »ñÈ¡ÇëÇóid
+		String id = request.getParameter("id");
+		// 2. ¸ù¾İid²éÑ¯¶ÔÏó
+		FoodType ft = foodTypeService.findById(Integer.parseInt(id));
+		// 3. ±£´æ
+		request.setAttribute("foodType", ft);
+		// 4. Ìø×ª
+		uri = request.getRequestDispatcher("/sys/type/foodtype_update.jsp");
+		return uri;
+	}
 
-            // 2. è°ƒç”¨serviceå¤„ç†ä¸šåŠ¡é€»è¾‘
-            foodTypeService.save(ft);
+	// d. É¾³ı
+	public Object delete(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Object uri = null;
+		// 1. »ñÈ¡ÇëÇóid
+		String id = request.getParameter("id");
+		// 2. µ÷ÓÃService
+		foodTypeService.delete(Integer.parseInt(id));
+		// 3. Ìø×ª
+		uri = "/foodType?method=list";
+		return uri;
+	}
 
-            // 3. è·³è½¬
-            uri = request.getRequestDispatcher("/foodType?method=list");
-        } catch (Exception e) {
-            e.printStackTrace();
-            uri = "/error/error.jsp";
-        }
+	// e. ¸üĞÂ
+	public Object update(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Object uri = null;
+		// 1. »ñÈ¡ÇëÇóÊı¾İ·â×°
+		int id = Integer.parseInt(request.getParameter("id"));
+		String name = request.getParameter("foodTypeName");
+		FoodType foodType = new FoodType();
+		foodType.setId(id);
+		foodType.setTypeName(name);
 
-        WebUtils.goTo(request, response, uri);
-
-
-    }
-
-    //b. èœç³»åˆ—è¡¨å±•ç¤º
-    public void list(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        try {
-            // è°ƒç”¨ServiceæŸ¥è¯¢æ‰€æœ‰çš„ç±»åˆ«
-            List<FoodType> list = foodTypeService.getAll();
-            // ä¿å­˜
-            request.setAttribute("listFoodType", list);
-            // è·³è½¬çš„èœç³»åˆ—è¡¨é¡µé¢
-            uri = request.getRequestDispatcher("/sys/type/foodtype_list.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
-            uri = "/error/error.jsp";
-        }
-
-        // è·³è½¬
-        WebUtils.goTo(request, response, uri);
-    }
-
-    //c. è¿›å…¥æ›´æ–°é¡µé¢
-    public void viewUpdate(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            // 1. è·å–è¯·æ±‚id
-            String id = request.getParameter("id");
-            // 2. æ ¹æ®idæŸ¥è¯¢å¯¹è±¡
-            FoodType ft = foodTypeService.findById(Integer.parseInt(id));
-            // 3. ä¿å­˜
-            request.setAttribute("foodType", ft);
-            // 4. è·³è½¬
-            uri = request.getRequestDispatcher("/sys/type/foodtype_update.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
-            uri = "/error/error.jsp";
-        }
-
-        WebUtils.goTo(request, response, uri);
-    }
-
-    //d. åˆ é™¤
-    public void delete(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        try {
-            // 1. è·å–è¯·æ±‚id
-            String id = request.getParameter("id");
-            // 2. è°ƒç”¨Service
-            foodTypeService.delete(Integer.parseInt(id));
-            // 3. è·³è½¬
-            uri = "/foodType?method=list";
-        } catch (Exception e) {
-            e.printStackTrace();
-            uri = "/error/error.jsp";
-        }
-
-        WebUtils.goTo(request, response, uri);
-    }
-
-    // e. æ›´æ–°
-    public void update(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        try {
-            //1. è·å–è¯·æ±‚æ•°æ®å°è£…
-            int id = Integer.parseInt(request.getParameter("id"));
-            String name = request.getParameter("foodTypeName");
-            FoodType foodType = new FoodType();
-            foodType.setId(id);
-            foodType.setTypeName(name);
-
-            //2. è°ƒç”¨Serviceæ›´æ–°
-            foodTypeService.update(foodType);
-            //3. è·³è½¬
-            //list(request,response);
-            uri = "/foodType?method=list";
-        } catch (Exception e) {
-            e.printStackTrace();
-            uri = "/error/error.jsp";
-        }
-
-        // è·³è½¬
-        WebUtils.goTo(request, response, uri);
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        this.doGet(request, response);
-    }
+		// 2. µ÷ÓÃService¸üĞÂ
+		foodTypeService.update(foodType);
+		// 3. Ìø×ª
+		// list(request,response);
+		uri = "/foodType?method=list";
+		return uri;
+	}
 
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -63,7 +63,7 @@
 				 			
 				 		
 				 		<td>
-							<a href="orderDetail.jsp" class="FunctionButton">详细</a>
+							<a href="orderDetail.html" class="FunctionButton">详细</a> 
 				 			
 				 				<a href="#" class="FunctionButton">结账</a>
 				 			

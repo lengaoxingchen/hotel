@@ -1,57 +1,31 @@
 package cn.itcast.servlet;
 
-import cn.itcast.entity.DinnerTable;
-import cn.itcast.factory.BeanFactory;
-import cn.itcast.service.DinnerTableService;
-import cn.itcast.utils.WebUtils;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
+
+import cn.itcast.entity.DinnerTable;
 
 public class IndexServlet extends BaseServlet {
-    //åˆ›å»ºservice
-    private DinnerTableService dinnerTableService = BeanFactory.getInstance("dinnerTableService", DinnerTableService.class);
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //è·å–æ“ä½œçš„ç±»å‹
-        String method = request.getParameter("method");
-        //åˆ¤æ–­
-        if (method == null) {
-            method = "listTable";
-        }
-        if ("listTable".equals(method)) {
-            //1.å‰å°é¦–é¡µ,æ˜¾ç¤ºæ‰€æœ‰æœªé¢„å®šçš„é¤æ¡Œ
-            listTable(request, response);
-        }
+	// 1. Ç°Ì¨Ê×Ò³£ºÏÔÊ¾ËùÓĞÎ´Ô¤¶¨µÄ²Í×À
+	public Object listTable(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// ±£´æÌø×ª×ÊÔ´(×ª·¢/ÖØ¶¨Ïò)
+		Object uri = null;
+		// ²éÑ¯ËùÓĞÎ´Ô¤¶¨²Í×À
+		List<DinnerTable> list = dinnerTableService.findNoUseTable();
+		// ±£´æµ½request
+		request.setAttribute("listDinnerTable", list);
+		// Ìø×ªµ½Ê×Ò³ÏÔÊ¾
+		uri = request.getRequestDispatcher("/app/index.jsp");
+		return uri;
 
-    }
+		// Ìø×ª
+		// WebUtils.goTo(request, response, uri);
+	}
 
-    /**
-     * //1.å‰å°é¦–é¡µ,æ˜¾ç¤ºæ‰€æœ‰æœªé¢„å®šçš„é¤æ¡Œ
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
-    private void listTable(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //ä¿å­˜è·³è½¬èµ„æº(è½¬å‘/é‡å®šå‘)
-        Object uri = null;
-        try {
-            //æŸ¥è¯¢æ‰€æœ‰æœªé¢„å®šé¤æ¡Œ
-            List<DinnerTable> list = dinnerTableService.findNoUse();
-            //ä¿å­˜åˆ°requestä¸­
-            request.setAttribute("listDinnerTable", list);
-            //è·³è½¬åˆ°é¦–é¡µæ˜¾ç¤º
-            uri = request.getRequestDispatcher("/app/index.jsp");
-        } catch (Exception e) {
-            uri = "error/error.jsp";
-        }
-        WebUtils.goTo(request, response, uri);
-    }
 }

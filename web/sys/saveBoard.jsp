@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
  	<!-- 包含公共的JSP代码片段 -->
@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="style/css/index_1.css" />
     <script type="text/javascript">
 	function openWin(){
-		window.open('common_page_list.jsp');
+		window.open('common_page_list.html');
 		this.close();
 	}
 	</script>

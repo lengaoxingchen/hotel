@@ -1,29 +1,45 @@
 package cn.itcast.utils;
 
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.commons.dbutils.QueryRunner;
-
 import javax.sql.DataSource;
 
+import org.apache.commons.dbutils.QueryRunner;
+
+import cn.itcast.entity.TableStatus;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 /**
- * å°è£…å¸¸ç”¨çš„æ“ä½œ
+ * ·â×°³£ÓÃµÄ²Ù×÷
+ * @author Jie.Yuan
+ *
  */
 public class JdbcUtils {
 
-    //åˆå§‹åŒ–è¿æ¥æ± 
-    private static DataSource dataSource;
+	// ³õÊ¼»¯Á¬½Ó³Ø
+	private static DataSource dataSource;
+	static {
+		dataSource = new ComboPooledDataSource();
+	}
+	
+	public static DataSource getDataSource() {
+		return dataSource;
+	}
+	
+	/**
+	 * ´´½¨DbUtils³£ÓÃ¹¤¾ßÀà¶ÔÏó
+	 */
+	public static QueryRunner getQueryRunner() {
 
-    static {
-        dataSource = new ComboPooledDataSource();
-    }
-
-    /**
-     * åˆ›å»ºDbUtilså¸¸ç”¨å·¥å…·ç±»
-     * @return
-     */
-    public static QueryRunner getQueryRunner() {
-        return new QueryRunner(dataSource);
-    }
+		return new QueryRunner(dataSource);
+	}
+	
 
 }
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@
 
 	<!-- 过滤条件 -->
 	<div id="QueryArea">
-		<form action="/wirelessplatform/food.jsp" method="get">
+		<form action="/wirelessplatform/food.html" method="get">
 			<input type="hidden" name="method" value="search">
 			<input type="text" name="keyword" title="请输入菜品名称">
 			<input type="submit" value="搜索">
@@ -59,8 +59,8 @@
 				<td>36.0&nbsp;</td>
                 <td>23.0&nbsp;</td>
 				<td>
-					<a href="updateFood.jsp"  class="FunctionButton">更新</a>
-					<a href="/wirelessplatform/food.jsp?method=delete&id=1" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="updateFood.html"  class="FunctionButton">更新</a>				
+					<a href="/wirelessplatform/food.html?method=delete&id=1" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -71,8 +71,8 @@
 				<td>68.0&nbsp;</td>
                 <td>50.0&nbsp;</td>
 				<td>
-					<a href="updateFood.jsp"  class="FunctionButton">更新</a>
-					<a href="/wirelessplatform/food.jsp?method=delete&id=2" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="updateFood.html"  class="FunctionButton">更新</a>				
+					<a href="/wirelessplatform/food.html?method=delete&id=2" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -84,7 +84,7 @@
                 <td>50.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=3"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=3" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=3" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -96,7 +96,7 @@
                 <td>50.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=4"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=4" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=4" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -108,7 +108,7 @@
                 <td>50.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=5"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jap?method=delete&id=5" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=5" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -120,7 +120,7 @@
                 <td>50.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=6"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=6" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=6" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -132,7 +132,7 @@
                 <td>50.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=7"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=7" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=7" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -144,7 +144,7 @@
                 <td>29.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=8"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=8" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=8" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -156,7 +156,7 @@
                 <td>18.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=9"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=9" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=9" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -168,7 +168,7 @@
                 <td>16.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=10"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=10" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=10" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -180,7 +180,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=11"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=11" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=11" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -192,7 +192,7 @@
                 <td>18.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=12"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=12" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=12" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -204,7 +204,7 @@
                 <td>18.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=13"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=13" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=13" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -216,7 +216,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=14"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=14" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=14" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -228,7 +228,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=15"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=15" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=15" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -240,7 +240,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=16"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=16" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=16" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -252,7 +252,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=17"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=17" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=17" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -264,7 +264,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=18"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=18" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=18" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -276,7 +276,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=19"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=19" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=19" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -288,7 +288,7 @@
                 <td>20.0&nbsp;</td>
 				<td>
 					<a href="/wirelessplatform/forward?method=foodSaveOrUpdateUI&id=20"  class="FunctionButton">更新</a>				
-					<a href="/wirelessplatform/food.jsp?method=delete&id=20" onClick="return delConfirm();"class="FunctionButton">删除</a>
+					<a href="/wirelessplatform/food.html?method=delete&id=20" onClick="return delConfirm();"class="FunctionButton">删除</a>				
 				</td>
 			</tr>
         
@@ -297,7 +297,7 @@
 	
    <!-- 其他功能超链接 -->
 	<div id="TableTail" align="center">
-		<div class="FunctionButton"><a href="saveFood.jsp">添加</a></div>
+		<div class="FunctionButton"><a href="saveFood.html">添加</a></div>
     </div> 
 </div>
 </body>

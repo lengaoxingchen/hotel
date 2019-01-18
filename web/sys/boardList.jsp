@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
  	<!-- 包含公共的JSP代码片段 -->
@@ -29,7 +29,7 @@
 
 <!-- 过滤条件 -->
 <div id="QueryArea">
-	<form action="/wirelessplatform/board." method="get">
+	<form action="/wirelessplatform/board.html" method="get">
 		<input type="hidden" name="method" value="search">
 		<input type="text" name="keyword" title="请输入餐桌名称">
 		<input type="submit" value="搜索">

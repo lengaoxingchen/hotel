@@ -55,13 +55,14 @@
 							<c:forEach var="foodType" items="${requestScope.listFoodType}">
 								<tr>
 									<td>${foodType.id }</td>
-									<td>${foodType.typeName}</td>
+									<td>${foodType.typeName }</td>
 									<td>
 										<a href="${pageContext.request.contextPath }/foodType?id=${foodType.id}&method=viewUpdate" class="FunctionButton">更新</a> 
 										<a href="${pageContext.request.contextPath }/foodType?id=${foodType.id}&method=delete" class="FunctionButton">删除</a>
 									</td>
 								</tr>
 							</c:forEach>
+						
 						</c:when>
 						<c:otherwise>
 							<tr>

@@ -51,7 +51,7 @@
 						<tr>
 							<td width="80px">菜系名称</td>
 							<td>
-								<input type="text" name="foodTypeName" class="InputStyle" value=""/>
+								<input type="text" name="foodTypeName" class="InputStyle" value=""/> *
 							</td>
 						</tr>
 					</table>
