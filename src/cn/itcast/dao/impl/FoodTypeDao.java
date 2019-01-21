@@ -57,7 +57,7 @@ public class FoodTypeDao implements IFoodTypeDao {
 
     @Override
     public void save(FoodType foodType) {
-        String sql = "INSERT INTO foodType(typeName) VALUES(?);";
+        String sql = "INSERT INTO foodType(typeName) VALUES(?)";
         try {
             JdbcUtils.getQueryRunner().update(sql, foodType.getTypeName());
         } catch (Exception e) {
